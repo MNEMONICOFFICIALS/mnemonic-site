@@ -4,6 +4,7 @@
 <title>MNΞМΟNiC</title>
 
 <style>
+
 body{
 margin:0;
 background:black;
@@ -45,28 +46,21 @@ margin-top:10px;
 padding:100px 20px;
 max-width:900px;
 margin:auto;
+text-align:center;
 }
+
 .neighborhood{
 height:100vh;
-
 background-image:url("dc.webp");
-
 background-size:cover;
-
 background-position:center;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 flex-direction:column;
-
-text-shadow:
-0px 0px 15px black,
-0px 0px 25px black;
+text-shadow:0 0 20px black;
 }
+
 .house{
 height:100vh;
 display:flex;
@@ -74,6 +68,12 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 font-size:1.5rem;
+cursor:pointer;
+transition:0.3s;
+}
+
+.house:hover{
+transform:scale(1.05);
 }
 
 .ivy{
@@ -95,9 +95,34 @@ background:#4A90E222;
 .lelani{
 background:#FFD1DC22;
 }
+
 h2{
 color:#E6E6FA;
 }
+
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#111;
+border:2px solid #E6E6FA;
+width:350px;
+padding:25px;
+z-index:999;
+box-shadow:0 0 30px #E6E6FA;
+text-align:center;
+}
+
+.popup button{
+background:#E6E6FA;
+border:none;
+padding:10px 20px;
+cursor:pointer;
+margin-top:15px;
+}
+
 </style>
 
 </head>
@@ -105,52 +130,53 @@ color:#E6E6FA;
 <body>
 
 <section class="hero">
-    <div class="logo">MNΞМΟNiC</div>
-    <div class="tagline">you weren't supposed to find this</div>
+<div class="logo">MNΞМΟNiC</div>
+<div class="tagline">you weren't supposed to find this</div>
 </section>
 
 <section class="section">
-    <h2>THE BROADCAST</h2>
+<h2>THE BROADCAST</h2>
 
-    <p>
-        MNΞМΟNiC transmits from somewhere
-        between memory and static.
-    </p>
+<p>
+MNΞМΟNiC transmits from somewhere
+between memory and static.
+</p>
 </section>
 
 <section class="neighborhood">
-    <h2>THE NEIGHBORHOOD</h2>
+<h2>THE NEIGHBORHOOD</h2>
 
-    <p>
-        Keep scrolling.
-        The signal gets stronger.
-    </p>
+<p>
+Keep scrolling.
+The signal gets stronger.
+</p>
 </section>
 
-<section class="house ivy">
-    <h2>🏠 IVY</h2>
-    <p>The Source</p>
+<section class="house ivy" onclick="openIvy()">
+<h2>🏠 IVY</h2>
+<p>The Source</p>
 </section>
 
 <section class="house isabella">
-    <h2>📺 ISABELLA</h2>
-    <p>The Static</p>
+<h2>📺 ISABELLA</h2>
+<p>The Static</p>
 </section>
 
 <section class="house rya">
-    <h2>💿 RYA</h2>
-    <p>The Resonance</p>
+<h2>💿 RYA</h2>
+<p>The Resonance</p>
 </section>
 
 <section class="house kelsy">
-    <h2>⏰ KELSY</h2>
-    <p>The Wavelength</p>
+<h2>⏰ KELSY</h2>
+<p>The Wavelength</p>
 </section>
 
 <section class="house lelani">
-    <h2>📸 LELANI</h2>
-    <p>The Afterimage</p>
+<h2>📸 LELANI</h2>
+<p>The Afterimage</p>
 </section>
+
 <div id="memberPopup" class="popup">
 
 <h2 id="memberName">Ivy</h2>
@@ -160,8 +186,7 @@ The Source
 </p>
 
 <p id="memberLore">
-Remove Ivy and there is no broadcast.
-There never was.
+Remove Ivy and there is no broadcast. There never was.
 </p>
 
 <button onclick="closePopup()">
@@ -169,5 +194,29 @@ Close Transmission
 </button>
 
 </div>
+
+<script>
+
+function openIvy(){
+
+document.getElementById("memberPopup").style.display="block";
+
+document.getElementById("memberName").innerText="Ivy";
+
+document.getElementById("memberRole").innerText="The Source";
+
+document.getElementById("memberLore").innerText=
+"Remove Ivy and there is no broadcast. There never was.";
+
+}
+
+function closePopup(){
+
+document.getElementById("memberPopup").style.display="none";
+
+}
+
+</script>
+
 </body>
 </html>
